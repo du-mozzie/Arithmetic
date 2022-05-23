@@ -2,6 +2,7 @@ package com.du.dataStructure.graph;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,5 +32,7 @@ public class Node {
         this.value = value;
         this.in = 0;
         this.out = 0;
+        this.nexts = new ArrayList<>();
+        this.edges = new ArrayList<>();
     }
 }

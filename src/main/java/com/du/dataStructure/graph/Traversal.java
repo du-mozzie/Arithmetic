@@ -17,11 +17,17 @@ public class Traversal {
         System.out.print("BFS：");
         BFS(graph.nodes.get(1));
         System.out.println("\n------------------------------");
+
+        // DFS
+        System.out.print("DFS：");
+        DFS(graph.nodes.get(1));
+        System.out.println("\n------------------------------");
     }
 
     /**
      * 宽度优先搜索
      * 从node节点出发
+     * 从队列取出节点的时候处理
      *
      * @param node 节点
      */
@@ -46,6 +52,40 @@ public class Traversal {
                 if (!set.contains(next)) {
                     queue.add(next);
                     set.add(next);
+                }
+            }
+        }
+    }
+
+    /**
+     * 深度优先搜索 从node节点出发
+     * 从栈加入节点的时候处理
+     *
+     * @param node node
+     */
+    public static void DFS(Node node) {
+        if (node == null) return;
+        // 用一个栈来进行深度遍历
+        Stack<Node> stack = new Stack<>();
+        // 用一个set集合,防止遍历重复节点
+        Set<Node> set = new HashSet<>();
+        // 把node放入queue、set
+        stack.add(node);
+        set.add(node);
+        System.out.print(node.value + "\t");
+        while (!stack.isEmpty()) {
+            // 取出栈顶节点
+            Node curr = stack.pop();
+            for (Node next : curr.nexts) {
+                // 如果当前节点没有遍历过
+                if (!set.contains(next)){
+                    // 当前取出的节点也要重新入栈,先入栈,放到栈底
+                    stack.add(curr);
+                    stack.add(next);
+                    set.add(next);
+                    System.out.print(next.value + "\t");
+                    // 加入了一个节点直接跳出循环,进行深度遍历
+                    break;
                 }
             }
         }

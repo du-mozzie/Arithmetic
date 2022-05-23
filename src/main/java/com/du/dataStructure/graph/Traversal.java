@@ -10,6 +10,15 @@ import java.util.*;
  */
 public class Traversal {
 
+    public static void main(String[] args) {
+        Graph graph = GraphUtils.createGraph();
+
+        // BFS
+        System.out.print("BFS：");
+        BFS(graph.nodes.get(1));
+        System.out.println("\n------------------------------");
+    }
+
     /**
      * 宽度优先搜索
      * 从node节点出发

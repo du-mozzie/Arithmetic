@@ -25,7 +25,7 @@ public class HeapSort {
         }
     }
 
-    // 目前只有实现正数的排序
+    // TODO 目前只有实现正数的排序
     private static void heapSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         // 把数组变为大根堆,数是一个个给的

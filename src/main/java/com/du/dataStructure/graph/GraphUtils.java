@@ -13,7 +13,7 @@ public class GraphUtils {
      * matrix[0][0] weight
      * matrix[0][1] fromNode 坐标
      * matrix[0][2] toNode 坐标
-     *
+     * TODO 创建无向图还有BUG,循环依赖,栈溢出
      * @return 矩阵
      */
     public static Integer[][] createMatrix() {

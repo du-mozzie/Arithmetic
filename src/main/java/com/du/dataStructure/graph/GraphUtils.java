@@ -111,7 +111,7 @@ public class GraphUtils {
             }
             Node fromNode = graph.nodes.get(from);
             Node toNode = graph.nodes.get(to);
-            Edge edge = new Edge(weight, from, to);
+            Edge edge = new Edge(weight, fromNode, toNode);
             fromNode.nexts.add(toNode);
             fromNode.out++;
             toNode.in++;

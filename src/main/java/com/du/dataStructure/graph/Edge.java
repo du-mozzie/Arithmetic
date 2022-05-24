@@ -14,12 +14,12 @@ public class Edge {
     public int weight;
 
     // 边的起始节点
-    public int from;
+    public Node from;
 
     // 边的结束节点
-    public int to;
+    public Node to;
 
-    public Edge(int weight, int from, int to) {
+    public Edge(int weight, Node from, Node to) {
         this.weight = weight;
         this.from = from;
         this.to = to;

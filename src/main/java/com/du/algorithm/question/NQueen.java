@@ -1,5 +1,8 @@
 package com.du.algorithm.question;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author : Du YingJie (2548425238@qq.com)
  * @Description : [N皇后问题
@@ -12,68 +15,78 @@ package com.du.algorithm.question;
  */
 public class NQueen {
 
-
     public static void main(String[] args) {
+        List<List<String>> result = new ArrayList<>();
+        // n皇后问题
         int n = 4;
-        int nqueen = nqueen(n, 0, new int[n], 0);
-        System.out.println("nqueen = " + nqueen);
+        // 存放排好的皇后的位置
+        int[] record = new int[n];
+        List<List<String>> list = NQueen(0, n, result, record);
+        System.out.println("N皇后方案数：" + list.size());
+        // 打印N皇后
+        for (List<String> stringList : list) {
+            for (String s : stringList) {
+                System.out.println(s);
+            }
+            System.out.println("-----------------------");
+        }
     }
-
 
     /**
-     * 递归求解 n皇后问题
-     * @param n     表示n * n 的格子
-     * @param row   当前是多少行
-     * @param res   用一个数组,记录每一行的皇后所在的列
-     * @param count 结果总数
-     * @return
+     * @param row    当前是第几行
+     * @param n      几皇后
+     * @param result 存放结果的集合
+     * @return 结果集
      */
-    public static int nqueen(int n, int row, int[] res, int count) {
+    public static List<List<String>> NQueen(int row, int n, List<List<String>> result, int[] record) {
+        // 如果当前策略已经排好了，加到结果中去
         if (row == n) {
-            //打印
-            print(n, res);
-            count++;
-            System.out.println("-----------");
-            return count;
+            result.add(arrayToList(record));
+            return result;
         }
         for (int col = 0; col < n; col++) {
-            //先尝试着把皇后放在这一列
-            res[row] = col;
-            //判断和上面行的皇后是否冲突
-            if (isOk(row, col, res)) {
-                //迭代,下一行
-                count = nqueen(n, row + 1, res, count);
+            // 试一下当前列能不能放皇后
+            record[row] = col;
+            // 如果可以就继续放下一个,否则把皇后放在下一列
+            if (isValid(record, row)) {
+                // 递归
+                result = NQueen(row + 1, n, result, record);
             }
         }
-        return count;
+        return result;
     }
 
-    private static boolean isOk(int row, int col, int[] res) {
+    /**
+     * 判断当前皇后跟之前的皇后位置有没有冲突
+     *
+     * @param record record[0]...record[row - 1]之前皇后的位置
+     * @param row    当前行
+     * @return 有效true else 无效 false
+     */
+    private static boolean isValid(int[] record, int row) {
         for (int i = 0; i < row; i++) {
-            //判断上面每行皇后所在列, 如果和当前列相同则为false
-            if (res[i] == col) {
-                return false;
-            }
-            //判断撇和捺方向, 是两个斜率为1和-1的直线, 则他们两个坐标 |y2 - y1| == |x2 - x1|
-            if (Math.abs(col - res[i]) == Math.abs(row - i)) {
+            // 因为我们是按行来放的所有行肯定不会冲突,看一下列会不会冲突,跟斜线会不会冲突
+            // 判断撇和捺方向, 是两个斜率为1和-1的直线, 则他们两个坐标 |y2 - y1| == |x2 - x1|
+            if (record[i] == record[row] || Math.abs(row - i) == Math.abs(record[row] - record[i])) {
                 return false;
             }
         }
         return true;
     }
 
-    private static void print(int n, int[] res) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (res[i] == j) {
-                    System.out.print("Q");
-                } else {
-                    System.out.print("*");
+    public static List<String> arrayToList(int[] record){
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < record.length; i++) {
+            StringBuilder buffer = new StringBuilder();
+            for (int j = 0; j < record.length; j++) {
+                if (j == record[i]){
+                    buffer.append("Q ");
+                }else {
+                    buffer.append("* ");
                 }
-                System.out.print(" ");
             }
-            System.out.println();
+            list.add(buffer.toString());
         }
+        return list;
     }
-
 }

@@ -82,7 +82,7 @@ public class UnionFind {
          * @param element 元素
          * @return 元素父节点
          */
-        public Element<V> findHead(Element<V> element) {
+        private Element<V> findHead(Element<V> element) {
             Queue<Element<V>> path = new ArrayDeque<>();
             while (element != fatherMap.get(element)) {
                 path.add(element);

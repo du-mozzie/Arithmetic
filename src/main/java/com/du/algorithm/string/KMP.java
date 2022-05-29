@@ -29,7 +29,7 @@ public class KMP {
         int i2 = 0;
         // 获取str2的next数组  O(M)
         int[] next = getNextArray(str2);
-        // O()
+        // O(N)
         while (i1 < str1.length && i2 < str2.length) {
             if (str1[i1] == str2[i2]) {
                 // 相等时++

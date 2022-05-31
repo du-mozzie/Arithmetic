@@ -160,4 +160,35 @@ public class Traversal {
             }
         }
     }
+
+    /**
+     * 线索二叉树
+     * @param head 头节点
+     */
+    public static void morris(Node head){
+        if (head == null) return;
+        Node cur = head;
+        Node mostRight;
+        while (cur != null){
+            // mostRight是cur左孩子
+            mostRight = cur.left;
+            if (mostRight != null){
+                // 有左孩子
+                while (mostRight.right != null && mostRight.right != cur){
+                    mostRight = mostRight.right;
+                }
+                // mostRight变成了cur左子树上,最右的节点
+                if (mostRight.right == null){
+                    // 这是第一次来到cur
+                    mostRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                }else {
+                    // mostRight.right == cur
+                    mostRight.right = null;
+                }
+            }
+            cur = cur.right;
+        }
+    }
 }

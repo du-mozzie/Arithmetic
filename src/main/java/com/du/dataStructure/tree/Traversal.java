@@ -163,27 +163,28 @@ public class Traversal {
 
     /**
      * 线索二叉树
+     *
      * @param head 头节点
      */
-    public static void morris(Node head){
+    public static void morris(Node head) {
         if (head == null) return;
         Node cur = head;
         Node mostRight;
-        while (cur != null){
+        while (cur != null) {
             // mostRight是cur左孩子
             mostRight = cur.left;
-            if (mostRight != null){
+            if (mostRight != null) {
                 // 有左孩子
-                while (mostRight.right != null && mostRight.right != cur){
+                while (mostRight.right != null && mostRight.right != cur) {
                     mostRight = mostRight.right;
                 }
                 // mostRight变成了cur左子树上,最右的节点
-                if (mostRight.right == null){
+                if (mostRight.right == null) {
                     // 这是第一次来到cur
                     mostRight.right = cur;
                     cur = cur.left;
                     continue;
-                }else {
+                } else {
                     // mostRight.right == cur
                     mostRight.right = null;
                 }
@@ -191,4 +192,120 @@ public class Traversal {
             cur = cur.right;
         }
     }
+
+    // morris先序遍历
+    public static void morrisPre(Node head) {
+        if (head == null) return;
+        Node cur = head;
+        Node mostRight;
+        while (cur != null) {
+            // mostRight是cur左孩子
+            mostRight = cur.left;
+            if (mostRight != null) {
+                // 有左孩子
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                // mostRight变成了cur左子树上,最右的节点
+                if (mostRight.right == null) {
+                    // 这是第一次来到cur
+                    System.out.println(cur.value);
+                    mostRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                } else {
+                    // mostRight.right == cur
+                    mostRight.right = null;
+                }
+            } else {
+                // 没有左子树
+                System.out.println(cur.value);
+            }
+            cur = cur.right;
+        }
+    }
+
+    // morris中序遍历
+    public static void morrisIn(Node head) {
+        if (head == null) return;
+        Node cur = head;
+        Node mostRight;
+        while (cur != null) {
+            // mostRight是cur左孩子
+            mostRight = cur.left;
+            if (mostRight != null) {
+                // 有左孩子
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                // mostRight变成了cur左子树上,最右的节点
+                if (mostRight.right == null) {
+                    // 这是第一次来到cur
+                    mostRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                } else {
+                    // mostRight.right == cur
+                    mostRight.right = null;
+                }
+            }
+            System.out.println(cur.value);
+            cur = cur.right;
+        }
+    }
+
+    // morris后序遍历
+    public static void morrisPos(Node head) {
+        if (head == null) return;
+        Node cur = head;
+        Node mostRight;
+        while (cur != null) {
+            // mostRight是cur左孩子
+            mostRight = cur.left;
+            if (mostRight != null) {
+                // 有左孩子
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                // mostRight变成了cur左子树上,最右的节点
+                if (mostRight.right == null) {
+                    // 这是第一次来到cur
+                    mostRight.right = cur;
+                    cur = cur.left;
+                    continue;
+                } else {
+                    // mostRight.right == cur
+                    mostRight.right = null;
+                    printEdge(cur.left);
+                }
+            }
+            cur = cur.right;
+        }
+        printEdge(head);
+        System.out.println();
+    }
+
+    // 以X为头的树，逆序打印这棵树的右边界
+    public static void printEdge(Node x) {
+        Node tail = reverseEdge(x);
+        Node cur = tail;
+        while (cur != null) {
+            System.out.print(cur.value + " ");
+            cur = cur.right;
+        }
+        reverseEdge(tail);
+    }
+
+    private static Node reverseEdge(Node from) {
+        Node pre = null;
+        Node next = null;
+        while (from != null) {
+            next = from.right;
+            from.right = pre;
+            pre = from;
+            from = next;
+        }
+        return pre;
+    }
+
 }

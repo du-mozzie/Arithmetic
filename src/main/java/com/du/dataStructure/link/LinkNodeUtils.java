@@ -6,15 +6,15 @@ package com.du.dataStructure.link;
  * @Version : [v1.1]
  * @Date : [2022/5/21 0:55]
  */
-public class ListNodeUtils {
+public class LinkNodeUtils {
 
     // 创建一个链表
-    public static ListNode createListNode(){
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        ListNode node5 = new ListNode(5);
+    public static LinkNode createListNode(){
+        LinkNode node1 = new LinkNode(1);
+        LinkNode node2 = new LinkNode(2);
+        LinkNode node3 = new LinkNode(3);
+        LinkNode node4 = new LinkNode(4);
+        LinkNode node5 = new LinkNode(5);
 
         node1.next = node2;
         node2.next = node3;

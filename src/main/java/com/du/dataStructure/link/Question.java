@@ -9,6 +9,6 @@ package com.du.dataStructure.link;
 public class Question {
 
     public static void main(String[] args) {
-        ListNode head = ListNodeUtils.createListNode();
+        LinkNode head = LinkNodeUtils.createListNode();
     }
 }

@@ -9,12 +9,12 @@ import lombok.Data;
  * @Date : [2022/5/20 1:12]
  */
 @Data
-public class ListNode {
+public class LinkNode {
 
     public int val;
-    public ListNode next;
+    public LinkNode next;
 
-    public ListNode(int x) {
+    public LinkNode(int x) {
         val = x;
         next = null;
     }

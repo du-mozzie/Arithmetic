@@ -9,132 +9,132 @@ package com.du.dataStructure.tree;
 public class TreeUtils {
 
     // 创建一棵二叉树,不是搜索二叉树,不是完全二叉树,不是平衡二叉树
-    public static Node createNode(){
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
-        Node node8 = new Node(8);
+    public static TreeNode createNode(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(7);
+        TreeNode treeNode8 = new TreeNode(8);
 
-        node1.left = node2;
-        node1.right = node3;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
 
-        node2.right = node5;
+        treeNode2.right = treeNode5;
 
-        node3.left = node6;
-        node3.right = node7;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
 
-        node7.left = node4;
+        treeNode7.left = treeNode4;
 
-        node4.left = node8;
-        return node1;
+        treeNode4.left = treeNode8;
+        return treeNode1;
     }
 
     // 创建一棵搜索二叉树
-    public static Node createBST(){
-        Node node1 = new Node(5);
-        Node node2 = new Node(2);
-        Node node3 = new Node(9);
-        Node node4 = new Node(1);
-        Node node5 = new Node(3);
-        Node node6 = new Node(6);
-        Node node7 = new Node(10);
+    public static TreeNode createBST(){
+        TreeNode treeNode1 = new TreeNode(5);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(9);
+        TreeNode treeNode4 = new TreeNode(1);
+        TreeNode treeNode5 = new TreeNode(3);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(10);
 
-        node1.left = node2;
-        node1.right = node3;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
 
-        node2.left = node4;
-        node2.right = node5;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
 
-        node3.left = node6;
-        node3.right = node7;
-        return node1;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
+        return treeNode1;
     }
 
     // 创建一棵完全二叉树
-    public static Node createCBT(){
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
+    public static TreeNode createCBT(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(7);
 
-        node1.left = node2;
-        node1.right = node3;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
 
-        node2.left = node4;
-        node2.right = node5;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
 
         // node3.left = node6;
         // node3.right = node7;
-        return node1;
+        return treeNode1;
     }
 
     // 创建一棵满二叉树
-    public static Node createFBT(){
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
+    public static TreeNode createFBT(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(7);
 
-        node1.left = node2;
-        node1.right = node3;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
 
-        node2.left = node4;
-        node2.right = node5;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
 
-        node3.left = node6;
-        node3.right = node7;
-        return node1;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
+        return treeNode1;
     }
 
     // 创建一棵平衡二叉树
-    public static Node createBBT() {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
+    public static TreeNode createBBT() {
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(7);
 
-        node1.left = node2;
-        node1.right = node3;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
 
-        node2.left = node4;
-        node2.right = node5;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
 
-        node3.left = node6;
-        node3.right = node7;
-        return node1;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
+        return treeNode1;
     }
 
     // 寻找最近公共祖先 测试用例
-    public static Node createLCA(){
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
-        Node node8 = new Node(8);
+    public static TreeNode createLCA(){
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode7 = new TreeNode(7);
+        TreeNode treeNode8 = new TreeNode(8);
 
-        node1.left = node2;
-        node1.right = node3;
-        node2.left = node4;
-        node2.right = node5;
-        node3.left = node6;
-        node3.right = node7;
-        node5.right = node8;
-        return node1;
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
+        treeNode5.right = treeNode8;
+        return treeNode1;
     }
 }

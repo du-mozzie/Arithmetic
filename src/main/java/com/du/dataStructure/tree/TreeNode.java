@@ -9,12 +9,12 @@ import lombok.Data;
  * @Date : [2022/5/20 14:07]
  */
 @Data
-public class Node {
+public class TreeNode {
     public Integer value;
-    public Node left;
-    public Node right;
+    public TreeNode left;
+    public TreeNode right;
 
-    public Node(Integer data) {
+    public TreeNode(Integer data) {
         this.value = data;
     }
 }
